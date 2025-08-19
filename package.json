@@ -1,5 +1,7 @@
 {
   "name": "vsc-dotfiles",
+  "publisher": "bree",
+  "icon": "images/icon.png",
   "displayName": "vsc-dotfiles",
   "description": "",
   "version": "0.0.1",
@@ -21,6 +23,11 @@
       {
         "command": "vsc-dotfiles.toggleCasing",
         "title": "Toggle Casing"
+      },
+
+      {
+        "command": "vsc-dotfiles.renameCurrentFile",
+        "title": "Rename Current File..."
       }
     ]
   },
