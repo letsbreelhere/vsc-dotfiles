@@ -28,8 +28,23 @@
       {
         "command": "vsc-dotfiles.renameCurrentFile",
         "title": "Rename Current File..."
+      },
+
+      {
+        "command": "vsc-dotfiles.toggleMaximize",
+        "title": "Collapsed splits",
+        "icon": "$(expand-all)"
       }
-    ]
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "vsc-dotfiles.toggleMaximize",
+          "group": "navigation",
+          "when": "editorTextFocus"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "yarn run compile",

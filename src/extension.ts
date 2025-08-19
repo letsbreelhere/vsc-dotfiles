@@ -1,36 +1,42 @@
-import { rename } from 'fs';
-import { pathToFileURL } from 'url';
-import * as vscode from 'vscode';
+import { rename } from "fs";
+import { pathToFileURL } from "url";
+import * as vscode from "vscode";
 
 export function activate(context: vscode.ExtensionContext) {
   console.log("vsc-dotfiles is active");
 
-	const activeEditorPath = (): string => {
+  const activeEditorPath = (): string => {
     const activeEditor = vscode.window.activeTextEditor;
 
     if (activeEditor) {
       const filePath = activeEditor.document.uri.fsPath;
-			return filePath;
+      return filePath;
     } else {
-			throw new Error("No active editor");
+      throw new Error("No active editor");
     }
-	};
+  };
 
   const renameCurrentFile = async () => {
-		const path = activeEditorPath();
+    const path = activeEditorPath();
 
-		const newPath = await vscode.window.showInputBox({
-			title: "New file name",
-			value: path,
-		});
+    const newPath = await vscode.window.showInputBox({
+      title: "New file name",
+      value: path,
+    });
 
-		if (newPath) {
-			await vscode.workspace.fs.rename(vscode.Uri.file(path), vscode.Uri.file(newPath));
-		}
+    if (newPath) {
+      await vscode.workspace.fs.rename(
+        vscode.Uri.file(path),
+        vscode.Uri.file(newPath)
+      );
+    }
   };
-	context.subscriptions.push(
-    vscode.commands.registerCommand("vsc-dotfiles.renameCurrentFile", renameCurrentFile)
-	);
+  context.subscriptions.push(
+    vscode.commands.registerCommand(
+      "vsc-dotfiles.renameCurrentFile",
+      renameCurrentFile
+    )
+  );
 
   const wordUnderCursor = ():
     | [string, vscode.Range]
@@ -139,6 +145,14 @@ export function activate(context: vscode.ExtensionContext) {
       editor.edit((editBuilder) => {
         editBuilder.replace(selection, toggled);
       });
+    })
+  );
+
+  context.subscriptions.push(
+    vscode.commands.registerCommand("vsc-dotfiles.toggleMaximize", () => {
+      vscode.commands.executeCommand(
+        "workbench.action.toggleMaximizeEditorGroup"
+      );
     })
   );
 }
