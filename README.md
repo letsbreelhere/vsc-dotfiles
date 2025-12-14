@@ -6,9 +6,10 @@ Contains a few helper scripts for my personal use.
 
 To install:
 
-1. Create the package:
-
 ```
+gh repo clone letsbreelhere/vscode-dotfiles
+cd vscode-dotfiles
+yarn add global vsce
 yarn vsce package
 ```
 

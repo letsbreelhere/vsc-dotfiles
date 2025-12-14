@@ -5,6 +5,7 @@
   "displayName": "vsc-dotfiles",
   "description": "",
   "version": "0.0.1",
+  "repository": "github:letsbreelhere/vsc-dotfiles",
   "engines": {
     "vscode": "^1.101.0"
   },
@@ -19,17 +20,14 @@
         "command": "vsc-dotfiles.searchWordUnderCursor",
         "title": "Search Word Under Cursor"
       },
-
       {
         "command": "vsc-dotfiles.toggleCasing",
         "title": "Toggle Casing"
       },
-
       {
         "command": "vsc-dotfiles.renameCurrentFile",
         "title": "Rename Current File..."
       },
-
       {
         "command": "vsc-dotfiles.toggleMaximize",
         "title": "Collapsed splits",
